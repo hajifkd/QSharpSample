@@ -31,6 +31,8 @@
 				{
 					Set(initial, qubits[0]);
 
+                    H(qubits[0]);
+
 					let res = M(qubits[0]);
 
 					if (res == One)
