@@ -7,11 +7,11 @@
     {
         body
         {
-			// Measure the qubit
+            // Measure the qubit
             let current = M(q1);
 
-			// If the Qubit is not the desired one,
-			// operate NOT
+            // If the Qubit is not the desired one,
+            // operate NOT
 			if (desired != current)
 			{
 				X(q1);
