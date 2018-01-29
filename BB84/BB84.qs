@@ -68,7 +68,7 @@
         }
     }
 
-    operation Carol (q2: Qubit) : ()
+    operation Eve (q2: Qubit) : ()
     {
         body
         {
@@ -81,7 +81,7 @@
         }
     }
 
-    operation IsIdenticalOnExchange (aliceDirection: Bool, bobDirection: Bool, withCarol: Bool) : (Bool)
+    operation IsIdenticalOnExchange (aliceDirection: Bool, bobDirection: Bool, withEve: Bool) : (Bool)
     {
         body
         {
@@ -90,9 +90,9 @@
             {
                 let aliceResult = Alice(qubits[0], qubits[1], aliceDirection);
 
-                if (withCarol)
+                if (withEve)
                 {
-                    Carol(qubits[1]);
+                    Eve(qubits[1]);
                 }
 
                 let bobResult = Bob(qubits[1], bobDirection);

@@ -5,7 +5,7 @@ namespace Quantum.BB84
 {
     class Driver
     {
-        static (int, int) Simulation(QuantumSimulator sim, int count, bool withCarol)
+        static (int, int) Simulation(QuantumSimulator sim, int count, bool withEve)
         {
             var random = new System.Random();
 
@@ -22,7 +22,7 @@ namespace Quantum.BB84
                     sameDirectionNum++;
                 }
 
-                var identical = IsIdenticalOnExchange.Run(sim, aliceDirection, bobDirection, withCarol).Result;
+                var identical = IsIdenticalOnExchange.Run(sim, aliceDirection, bobDirection, withEve).Result;
 
                 if (aliceDirection == bobDirection && identical)
                 {
@@ -43,10 +43,10 @@ namespace Quantum.BB84
                 {
                     System.Console.WriteLine($"Trial: {t}");
                     var (s1, i1) = Simulation(sim, t, false);
-                    System.Console.WriteLine($"Without Carol: same direction = {s1} identical = {i1}");
+                    System.Console.WriteLine($"Without Eve: same direction = {s1} identical = {i1}");
 
                     var (s2, i2) = Simulation(sim, t, true);
-                    System.Console.WriteLine($"With Carol: same direction = {s2} identical = {i2}");
+                    System.Console.WriteLine($"With Eve: same direction = {s2} identical = {i2}");
                 }
             }
 
